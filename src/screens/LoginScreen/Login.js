@@ -25,20 +25,6 @@ const Login = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
   const auth = FIREBASE_AUTH;
 
-  // Login
-  const signIn = async () => {
-    setLoading(true);
-    try {
-      const response = await signInWithEmailAndPassword(auth, email, password);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-      alert('Sign in fail: ' + error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const onHandleLogin = () => {
     if (email !== '' && password !== '') {
       signInWithEmailAndPassword(auth, email, password)

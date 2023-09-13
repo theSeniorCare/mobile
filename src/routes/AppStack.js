@@ -1,11 +1,13 @@
-import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { getDatabase, ref, onValue } from 'firebase/database';
 import Home from '../screens/HomeScreen/Home';
 import Chat from '../screens/ChatScreen/Chat';
 import Profile from '../screens/ProfileScreen/Profile';
 import Menu from '../screens/MenuScreen/Menu';
+import {FIREBASE_DB} from '../../FirebaseConfig';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +21,7 @@ export function AppStack() {
     >
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={() => <Home/>}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
