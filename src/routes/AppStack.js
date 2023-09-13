@@ -1,24 +1,65 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
-import {HomeScreen} from '../screens';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Home from '../screens/HomeScreen/Home';
+import Chat from '../screens/ChatScreen/Chat';
+import Profile from '../screens/ProfileScreen/Profile';
+import Menu from '../screens/MenuScreen/Menu';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
-export const AppStack = () => {
+export function AppStack() {
   return (
-    <SafeAreaView style={styles.safeAreaContainer}>
-      <Stack.Navigator
-        screenOptions={{
-          gestureEnabled: true,
-          headerShown: false,
-          ...TransitionPresets.SlideFromRightIOS,
-        }}>
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </SafeAreaView>
+    <Tab.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        tabBarActiveTintColor: '#e91e63',
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Chat"
+        component={Chat}
+        options={{
+          tabBarLabel: 'Chat',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="chat-processing-outline" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="account" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Menu"
+        component={Menu}
+        options={{
+          tabBarLabel: 'Menu',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="menu" color={color} size={size} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
-};
+}
 
 const styles = StyleSheet.create({
   safeAreaContainer: {
