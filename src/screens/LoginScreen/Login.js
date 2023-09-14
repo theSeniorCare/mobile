@@ -14,6 +14,7 @@ import {
 import { FIREBASE_AUTH } from '../../../FirebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import styles from './styles';
+import DeveloperOptionButton from '../DeveloperOptionScreen/DeveloperOptionButton'
 
 
 const Stack = createNativeStackNavigator();
@@ -102,6 +103,9 @@ const Login = ({ navigation }) => {
             </Text>
           </TouchableOpacity>
         </View>
+
+        {/* TODO: remove after development */}
+        <DeveloperOptionButton navigation={navigation} />
       </SafeAreaView>
       <StatusBar barStyle="light-content" />
     </View>
