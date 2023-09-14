@@ -1,8 +1,5 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Signup from "../screens/SignupScreen/Signup";
-import Login from "../screens/LoginScreen/Login";
-import BeforeSignup from "../screens/SignupScreen/BeforeSignup";
 import Chat from "../screens/ChatScreen/Chat";
 import ChatRoom from "../screens/ChatRoomScreen/ChatRoom";
 
