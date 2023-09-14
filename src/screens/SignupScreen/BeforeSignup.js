@@ -3,9 +3,9 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './styles';
 const BeforeSignup = ({ navigation }) => {
-  const handleBoxPress = () => {
+  const handleBoxPress = (userType) => {
     // Handle the box press here
-    navigation.navigate('Signup');
+    navigation.navigate('Signup',{userType});
   };
 
   const handleBackButtonPress = () => {
@@ -20,12 +20,12 @@ const BeforeSignup = ({ navigation }) => {
           <Text>Back</Text>
         </TouchableOpacity>
         <Text style={styles.title}>Log In</Text>
-        <TouchableOpacity onPress={handleBoxPress}>
+        <TouchableOpacity onPress={() => handleBoxPress('Care Giver')}>
           <View style={styles.box}>
             <Text style={styles.boxText}>Care Giver</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={handleBoxPress}>
+        <TouchableOpacity onPress={()=> handleBoxPress('Senior')}>
           <View style={styles.box}>
             <Text style={styles.boxText}>Senior</Text>
           </View>
