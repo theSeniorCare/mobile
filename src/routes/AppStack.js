@@ -11,7 +11,7 @@ import {FIREBASE_DB} from '../../FirebaseConfig';
 
 const Tab = createBottomTabNavigator();
 
-export function AppStack() {
+export function AppStack({ userType }) {
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -21,7 +21,7 @@ export function AppStack() {
     >
       <Tab.Screen
         name="Home"
-        component={() => <Home/>}
+        component={() => <Home userType={userType}/>}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
