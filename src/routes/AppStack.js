@@ -8,6 +8,7 @@ import Chat from '../screens/ChatScreen/Chat';
 import Profile from '../screens/ProfileScreen/Profile';
 import Menu from '../screens/MenuScreen/Menu';
 import {FIREBASE_DB} from '../../FirebaseConfig';
+import { MenuStack } from './MenuStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -51,7 +52,7 @@ export function AppStack({ userType }) {
       />
       <Tab.Screen
         name="Menu"
-        component={Menu}
+        component={MenuStack}
         options={{
           tabBarLabel: 'Menu',
           tabBarIcon: ({ color, size }) => (
