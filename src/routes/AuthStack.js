@@ -4,6 +4,7 @@ import Signup from '../screens/SignupScreen/Signup';
 import Login from '../screens/LoginScreen/Login';
 import BeforeSignup from '../screens/SignupScreen/BeforeSignup';
 import Landing from '../screens/LandingScreen/Landing';
+import { DeveloperOptionStack } from "./DeveloperOptionStack";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +15,6 @@ export function AuthStack() {
       <Stack.Screen name='Login' component={Login} />
       <Stack.Screen name='Signup' component={Signup} />
       <Stack.Screen name='BeforeSignup' component={BeforeSignup} />
-    </Stack.Navigator>
+      <Stack.Screen name="DeveloperOption" component={DeveloperOptionStack} />
   );
 }
-

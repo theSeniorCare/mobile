@@ -10,36 +10,43 @@ import {
   Alert,
 } from "react-native";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { FIREBASE_AUTH } from '../../../FirebaseConfig';
+import { FIREBASE_AUTH, FIREBASE_DB } from '../../../FirebaseConfig';
 import styles from './styles';
+import { ref, set } from "firebase/database";
 
-const Signup = ({ navigation }) => {
+
+
+const Signup = ({ navigation,route }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const auth = FIREBASE_AUTH;
-  const [loading, setLoading] = useState(false);
-
-  const HandlingSignup = async () => {
-    setLoading(true);
-    try {
-      const response = await createUserWithEmailAndPassword(auth, email, password);
-      console.log(response);
-      alert('Check Your email');
-    } catch (error) {
-      console.log(error);
-      alert('registration fail: ' + error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const database = FIREBASE_DB;
+  const { userType } = route.params;
 
   const onHandleSignup = () => {
     if (email !== '' && password !== '') {
       createUserWithEmailAndPassword(auth, email, password)
-        .then(() => console.log('Signup success'))
-        .catch((err) => Alert.alert("Signup error", err.message));
+        .then((userCredential) => {
+          const user = userCredential.user;
+          const userData = {
+            email: user.email,
+            userType: userType 
+          };
+          const userRef = ref(database, 'users/' + user.uid);
+          set(userRef, userData)
+            .then(() => {
+              // Registration successful
+              // You can add any additional logic here
+            })
+            .catch((error) => {
+              // Handle error while saving data to Firebase
+              Alert.alert('Firebase Error:', error.message);
+            });
+  
+        })
+        .catch((error) => Alert.alert('Signup Error', error.message));
     } else {
-      alert('Signup Fail');
+      alert('Missing Fields', 'Please enter both email and password.'+ userType);
     }
   };
 
