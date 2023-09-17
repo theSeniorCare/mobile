@@ -21,7 +21,7 @@ const Landing = ({ navigation }) => {
   return (
     <Onboarding
       onDone={() => navigation.navigate('Login')}
-      skipToPage={2}
+      onSkip={() => navigation.navigate('Login')}
       imageContainerStyles={{ paddingBottom: 0 }}
       pages={[
         {
