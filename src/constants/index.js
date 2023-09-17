@@ -19,6 +19,17 @@ export const Colors = {
 
   // background
   ui_light_selected_bg: "#E7F5FF",
+
+  //UI Colors
+  main_color: "#FEEADA",
+  main_green: "#839D8E",
+  red_accent: "#D7706A",
+  green_accent: "#50755F",
+  green_text: "#55655C",
+  grey: "#878889",
+  dust_pink: "#F3D3D3",
+  brown: "#AB988B",
+  beige_accent: "#FEEFDC",
 };
 export const Fonts = {
   regular: "Montserrat-Regular", // Font File Name Must Match To Use Custom Font
