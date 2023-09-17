@@ -1,10 +1,12 @@
-import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Signup from '../screens/SignupScreen/Signup';
-import Login from '../screens/LoginScreen/Login';
-import BeforeSignup from '../screens/SignupScreen/BeforeSignup';
-import Landing from '../screens/LandingScreen/Landing';
+
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
+import Landing from "../screens/LandingScreen/Landing";
+import Login from "../screens/LoginScreen/Login";
+import BeforeSignup from "../screens/SignupScreen/BeforeSignup";
+import Signup from "../screens/SignupScreen/Signup";
 import Splash from '../screens/SplashScreen/Splash';
+
 import { DeveloperOptionStack } from "./DeveloperOptionStack";
 
 const Stack = createNativeStackNavigator();

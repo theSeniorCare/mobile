@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import React from "react";
+import { StyleSheet } from "react-native";
+import { Colors } from "../constants";
 import Home from "../screens/HomeScreen/Home";
-import Chat from "../screens/ChatScreen/Chat";
 import Profile from "../screens/ProfileScreen/Profile";
-import Menu from "../screens/MenuScreen/Menu";
-import { FIREBASE_DB } from "../../FirebaseConfig";
-import { MenuStack } from "./MenuStack";
 import { ChatStack } from "./ChatStack";
+import { MenuStack } from "./MenuStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -18,7 +15,17 @@ export function AppStack({ userType }) {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: "#e91e63",
+        headerStyle: {
+          backgroundColor: Colors.main_color,
+        },
+        headerTitleStyle: {
+          fontWeight: "bold",
+          color: Colors.main_green,
+        },
+        tabBarStyle: {
+          backgroundColor: Colors.main_color,
+        },
+        tabBarActiveTintColor: Colors.red_accent,
       }}
     >
       <Tab.Screen
