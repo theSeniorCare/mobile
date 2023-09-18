@@ -64,6 +64,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  label: {
+    fontSize: 18,
+    marginBottom: 8,
+  },
+  selectedValue: {
+    fontSize: 16,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
+    marginBottom: 16,
+  },
+  datePicker: {
+    width: '100%',
+    marginBottom: 16,
+  },
 });
 
 

@@ -8,11 +8,41 @@ import {
   TouchableOpacity,
   StatusBar,
   Alert,
+  ScrollView
 } from "react-native";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { FIREBASE_AUTH, FIREBASE_DB } from '../../../FirebaseConfig';
 import styles from './styles';
 import { ref, set } from "firebase/database";
+import { DateTimePicker } from '@react-native-community/datetimepicker';
+
+const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, isDate, showDatePicker, ...props }) => {
+  return (
+    <View>
+      <LeftIcon>
+        <Octicons name={icon} size={30} color={brand} />
+      </LeftIcon>
+      <StyledInputLabel>{label}</StyledInputLabel>
+
+      {isDate && (
+        <TouchableOpacity onPress={showDatePicker}>
+          <StyledTextInput {...props} />
+        </TouchableOpacity>
+      )}
+      {!isDate && <StyledTextInput {...props} />}
+
+      {isPassword && (
+        <RightIcon
+          onPress={() => {
+            setHidePassword(!hidePassword);
+          }}
+        >
+          <Ionicons name={hidePassword ? 'md-eye-off' : 'md-eye'} size={30} color={darkLight} />
+        </RightIcon>
+      )}
+    </View>
+  );
+};
 
 
 
@@ -55,12 +85,30 @@ const Signup = ({ navigation,route }) => {
     navigation.goBack();
   };
 
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [show, setShow] = useState(false);
+  const [date, setDate] = useState(new Date());
+
+  const toggleDatepicker= ()=>{
+    setShow(!show)
+  }
+  const onChange= ({type},selectedDate) =>{
+    if(type == "set"){
+      const currentDate = selectedDate
+      setDate(currentDate)
+    }else{
+      toggleDatepicker()
+    }
+  }
+
   return (
     <View style={styles.container}>
       <SafeAreaView style={styles.form}>
         <TouchableOpacity onPress={handleBackButtonPress} style={styles.backButton}>
           <Text>Back</Text>
         </TouchableOpacity>
+        <ScrollView
+        showsVerticalScrollIndicator={false} >
         <Text style={styles.title}>Sign Up</Text>
         <TextInput
           style={styles.input}
@@ -81,6 +129,55 @@ const Signup = ({ navigation,route }) => {
           value={password}
           onChangeText={(text) => setPassword(text)}
         />
+        <TextInput
+          style={styles.input}
+          placeholder="Name"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+       />
+       <TextInput
+          style={styles.input}
+          placeholder="Gender"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+       />
+       <TextInput
+          style={styles.input}
+          placeholder="Gender"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+       />
+       <TextInput
+          style={styles.input}
+          placeholder="DOB"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+       />
+       <TextInput
+          style={styles.input}
+          placeholder="Description"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+       />
+       <TextInput
+          style={styles.input}
+          placeholder="Specialization"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+       />
+       <TextInput
+          style={styles.input}
+          placeholder="Price"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+       />
+        <TextInput
+          style={styles.input}
+          placeholder="Availability"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+       />
+      
         <TouchableOpacity style={styles.button} onPress={onHandleSignup}>
           <Text style={{ fontWeight: 'bold', color: '#fff', fontSize: 18 }}> Sign Up</Text>
         </TouchableOpacity>
@@ -90,6 +187,10 @@ const Signup = ({ navigation,route }) => {
             <Text style={{ color: '#839D8E', fontWeight: '600', fontSize: 14 }}> Log In</Text>
           </TouchableOpacity>
         </View>
+
+
+        </ScrollView>
+      
       </SafeAreaView>
       <StatusBar barStyle="light-content" />
     </View>
