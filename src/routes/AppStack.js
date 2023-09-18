@@ -33,6 +33,7 @@ export function AppStack({ userType }) {
         component={() => <Home userType={userType} />}
         options={{
           tabBarLabel: "Home",
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
           ),
