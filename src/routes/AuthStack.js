@@ -1,4 +1,3 @@
-
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import Landing from "../screens/LandingScreen/Landing";
@@ -8,6 +7,7 @@ import Signup from "../screens/SignupScreen/Signup";
 import Splash from '../screens/SplashScreen/Splash';
 import Appointments from "../screens/AppointmentsScreen/Appointments";
 import AppointmentDetail from "../screens/AppointmentDetailScreen/AppointmentDetail";
+import Profile from "../screens/ProfileScreen/Profile";
 
 import { DeveloperOptionStack } from "./DeveloperOptionStack";
 
@@ -19,6 +19,7 @@ export function AuthStack() {
       screenOptions={{ headerShown: false }}
       initialRouteName="Splash"
     >
+      <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="Appointments" component={Appointments} />
       <Stack.Screen name="AppointmentDetail" component={AppointmentDetail} />
       <Stack.Screen name="Splash" component={Splash} />
