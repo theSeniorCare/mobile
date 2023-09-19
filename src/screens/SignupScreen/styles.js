@@ -83,10 +83,17 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingBottom:4,
     color: '#839D8E',
-    fontWeight: 'bold', // Adjust the padding as needed
+    fontWeight: 'bold',
+  },
+  textTitle: {
+    paddingBottom:16,
+    color: '#839D8E',
+    fontWeight: 'bold',
+    fontSize: 20,
+    alignSelf: 'center',
   },
   scrollView: {
-    flex: 1, // You typically want the ScrollView to fill its container
+    flex: 1, 
     marginTop: 20,
   },
 });

@@ -73,7 +73,9 @@ const Signup = ({ navigation,route }) => {
         <ScrollView style={styles.scrollView}
         showsVerticalScrollIndicator={false} >
         <Text style={styles.title}>Sign Up for {userType}</Text>
-        {/* <TextInput
+
+        <Text style={styles.text}>Email</Text>
+        <TextInput
           style={styles.input}
           placeholder="Enter email"
           autoCapitalize="none"
@@ -82,6 +84,7 @@ const Signup = ({ navigation,route }) => {
           value={email}
           onChangeText={(text) => setEmail(text)}
         />
+        <Text style={styles.text}>Password</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter password"
@@ -91,8 +94,10 @@ const Signup = ({ navigation,route }) => {
           textContentType="password"
           value={password}
           onChangeText={(text) => setPassword(text)}
-        /> */}
- 
+        />
+
+
+        <Text style={styles.textTitle}>Personal Informaiton</Text>
         <Text style={styles.text}>Name</Text>
         <TextInput
           style={styles.input}
@@ -145,7 +150,7 @@ const Signup = ({ navigation,route }) => {
         <TouchableOpacity style={styles.button} onPress={onHandleSignup}>
           <Text style={{ fontWeight: 'bold', color: '#fff', fontSize: 18 }}> Sign Up</Text>
         </TouchableOpacity>
-        <View style={{ marginTop: 20, flexDirection: 'row', alignItems: 'center', alignSelf: 'center' }}>
+        <View style={{ marginTop: 20, flexDirection: 'row', alignItems: 'center', alignSelf: 'center',marginBottom:60 }}>
           <Text style={{ color: 'gray', fontWeight: '600', fontSize: 14 }}>Already have an account? </Text>
           <TouchableOpacity onPress={() => navigation.navigate("Login")}>
             <Text style={{ color: '#839D8E', fontWeight: '600', fontSize: 14 }}> Log In</Text>
