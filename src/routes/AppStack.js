@@ -3,11 +3,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { StyleSheet } from "react-native";
 import { Colors } from "../constants";
+import Appointments from "../screens/AppointmentsScreen/Appointments";
 import Home from "../screens/HomeScreen/Home";
 import { ChatStack } from "./ChatStack";
-import Profile from "../screens/ProfileScreen/Profile";
 import { MenuStack } from "./MenuStack";
-import Appointments from "../screens/AppointmentsScreen/Appointments";
 
 const Tab = createBottomTabNavigator();
 
@@ -74,6 +73,7 @@ export function AppStack({ userType }) {
         name="Menu"
         component={MenuStack}
         options={{
+          headerShown: false,
           tabBarLabel: "Menu",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="menu" color={color} size={size} />

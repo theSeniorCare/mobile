@@ -12,14 +12,23 @@ import Spacer from "../../components/Spacer";
 import { Colors } from "../../constants";
 
 const createMenuSections = (userType) => {
-  const accountRows = ["Profile", "Appointments"];
+  const accountRows = [
+    { title: "Profile", target: "profile" },
+    { title: "Appointments", target: "appointments" },
+  ];
 
   switch (userType) {
     case "senior":
-      accountRows.push("Medical History", "Special Needs");
+      accountRows.push(
+        { title: "Medical History", target: "medical" },
+        { title: "Special Needs", target: "needs" },
+      );
       break;
     case "caregiver":
-      accountRows.push("Education", "About Me");
+      accountRows.push(
+        { title: "Education", target: "education" },
+        { title: "About Me", target: "aboutCaregiver" },
+      );
       break;
   }
 
@@ -30,12 +39,17 @@ const createMenuSections = (userType) => {
     },
     {
       title: "Support",
-      rows: ["Get Help", "Terms of Use", "Privacy Policy", "About Us"],
+      rows: [
+        { title: "Get Help", target: "help" },
+        { title: "Terms of Use", target: "terms" },
+        { title: "Privacy Policy", target: "privacy" },
+        { title: "About Us", target: "about" },
+      ],
     },
   ];
 };
 
-const Menu = () => {
+const Menu = ({ navigation }) => {
   const sections = createMenuSections("senior");
 
   return (
@@ -52,10 +66,13 @@ const Menu = () => {
             {title}
           </AppText>
           {rows.map((row, rid) => (
-            <TouchableOpacity key={`${sid}_${rid}`}>
+            <TouchableOpacity
+              key={`${sid}_${rid}`}
+              onPress={() => navigation.navigate(row.target)}
+            >
               <View style={styles.row}>
                 <AppText variant="primary" size={14}>
-                  {row}
+                  {row.title}
                 </AppText>
                 <Image source={require("assets/icons/chevron-right.png")} />
               </View>
