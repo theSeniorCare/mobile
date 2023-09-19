@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { getDatabase, ref, onValue } from "firebase/database";
-import Home from "../screens/HomeScreen/Home";
-import Chat from "../screens/ChatScreen/Chat";
-import Profile from "../screens/ProfileScreen/Profile";
-import Menu from "../screens/MenuScreen/Menu";
-import { FIREBASE_DB } from "../../FirebaseConfig";
-import { MenuStack } from "./MenuStack";
-import { ChatStack } from "./ChatStack";
-=======
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
@@ -22,7 +8,6 @@ import { ChatStack } from "./ChatStack";
 import Profile from "../screens/ProfileScreen/Profile";
 import { MenuStack } from "./MenuStack";
 import Appointments from "../screens/AppointmentsScreen/Appointments";
->>>>>>> main
 
 const Tab = createBottomTabNavigator();
 
@@ -31,9 +16,6 @@ export function AppStack({ userType }) {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
-<<<<<<< HEAD
-        tabBarActiveTintColor: "#e91e63",
-=======
         headerStyle: {
           backgroundColor: Colors.main_color,
         },
@@ -45,7 +27,6 @@ export function AppStack({ userType }) {
           backgroundColor: Colors.main_color,
         },
         tabBarActiveTintColor: Colors.red_accent,
->>>>>>> main
       }}
     >
       <Tab.Screen
@@ -53,26 +34,13 @@ export function AppStack({ userType }) {
         component={() => <Home userType={userType} />}
         options={{
           tabBarLabel: "Home",
-<<<<<<< HEAD
-=======
           headerShown: false,
->>>>>>> main
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen
-<<<<<<< HEAD
-        name="Chat"
-        component={ChatStack}
-        options={{
-          headerShown: false,
-          tabBarLabel: "Chat",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="chat-processing-outline"
-=======
         name="Appointments"
         component={Appointments}
         options={{
@@ -80,7 +48,6 @@ export function AppStack({ userType }) {
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
               name="calendar-check"
->>>>>>> main
               color={color}
               size={size}
             />
@@ -91,12 +58,8 @@ export function AppStack({ userType }) {
         name="Chat"
         component={ChatStack}
         options={{
-<<<<<<< HEAD
-          tabBarLabel: "Profile",
-=======
           headerShown: false,
           tabBarLabel: "Chat",
->>>>>>> main
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
               name="chat-processing-outline"
