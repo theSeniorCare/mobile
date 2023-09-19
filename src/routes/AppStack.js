@@ -30,7 +30,7 @@ export function AppStack({ userType }) {
     >
       <Tab.Screen
         name="Home"
-        component={() => <Home userType={userType} />}
+        component={Home}
         options={{
           tabBarLabel: "Home",
           headerShown: false,

@@ -11,9 +11,9 @@ const styles = StyleSheet.create({
   ChatListItemContainer: {
     display: "flex",
     flexDirection: "row",
-    backgroundColor: Colors.ui_light_selected_bg,
+    backgroundColor: Colors.main_color,
     borderBottomWidth: 2,
-    borderBottomColor: "white",
+    borderBottomColor: Colors.green_text,
   },
   ProfilePic: {
     width: 80,

@@ -10,6 +10,7 @@ import { FIREBASE_AUTH } from "../../../FirebaseConfig";
 import AppText from "../../components/AppText";
 import Spacer from "../../components/Spacer";
 import { Colors } from "../../constants";
+import { useNavigation } from "@react-navigation/native";
 
 const createMenuSections = (userType) => {
   const accountRows = [
@@ -51,6 +52,7 @@ const createMenuSections = (userType) => {
 
 const Menu = ({ navigation }) => {
   const sections = createMenuSections("senior");
+  const navigation = useNavigation();
 
   return (
     <ScrollView style={styles.container}>

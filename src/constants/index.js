@@ -30,9 +30,10 @@ export const Colors = {
   dust_pink: "#F3D3D3",
   brown: "#AB988B",
   beige_accent: "#FEEFDC",
+  white: "#FFFFFF",
 };
 export const Fonts = {
-  regular: "Montserrat-Regular", // Font File Name Must Match To Use Custom Font
+  regular: "Figtree_400Regular", // Font File Name Must Match To Use Custom Font
   light: "Montserrat-Light",
   medium: "Montserrat-Medium",
   bold: "Montserrat-Regular",
