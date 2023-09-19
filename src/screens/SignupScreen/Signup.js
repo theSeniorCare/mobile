@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  StyleSheet,
   Text,
   View,
   TextInput,
@@ -8,11 +7,14 @@ import {
   TouchableOpacity,
   StatusBar,
   Alert,
+  ScrollView,
 } from "react-native";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { FIREBASE_AUTH, FIREBASE_DB } from '../../../FirebaseConfig';
 import styles from './styles';
 import { ref, set } from "firebase/database";
+import GenderPicker from './GenderPicker';
+import DatePicker from './DatePicker';
 
 
 
@@ -54,6 +56,13 @@ const Signup = ({ navigation,route }) => {
     // Handle the back button press here
     navigation.goBack();
   };
+  const [dateOfBirth, setDateOfBirth] = useState(new Date());
+  const [availabilityDate, setavailabilityDate] = useState(new Date());
+  const [price, setPrice] = useState('');
+  const [description, setDescription] = useState('');
+  const [specialization, setSpecialization] = useState('');
+  const [name, setName] = useState('');
+
 
   return (
     <View style={styles.container}>
@@ -61,7 +70,11 @@ const Signup = ({ navigation,route }) => {
         <TouchableOpacity onPress={handleBackButtonPress} style={styles.backButton}>
           <Text>Back</Text>
         </TouchableOpacity>
-        <Text style={styles.title}>Sign Up</Text>
+        <ScrollView style={styles.scrollView}
+        showsVerticalScrollIndicator={false} >
+        <Text style={styles.title}>Sign Up for {userType}</Text>
+
+        <Text style={styles.text}>Email</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter email"
@@ -71,6 +84,7 @@ const Signup = ({ navigation,route }) => {
           value={email}
           onChangeText={(text) => setEmail(text)}
         />
+        <Text style={styles.text}>Password</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter password"
@@ -81,20 +95,75 @@ const Signup = ({ navigation,route }) => {
           value={password}
           onChangeText={(text) => setPassword(text)}
         />
+
+
+        <Text style={styles.textTitle}>Personal Informaiton</Text>
+        <Text style={styles.text}>Name</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Name"
+          value={name}
+          onChangeText={(text) => setName(text)}
+        />
+        <Text style={styles.text}>Gender</Text>
+        <GenderPicker />
+
+        <DatePicker
+          label="Date Of Birth"
+          selectedDate={dateOfBirth}
+          onDateChange={setDateOfBirth}
+        />
+
+        <Text style={styles.text}>Description</Text>
+        <TextInput
+          style={[styles.input, { height: 100, textAlignVertical: 'top' }]} 
+          placeholder="Description"
+          numberOfLines={4}
+          maxLength={40}
+          value={description}
+          onChangeText={(text) => setDescription(text)}
+        />
+
+        <Text style={styles.text}>Specialization</Text>
+        <TextInput
+            style={[styles.input,{ height: 100, textAlignVertical: 'top' }]}
+            placeholder="Specialization"
+            value={specialization}
+            onChangeText={(text) => setSpecialization(text)}
+        />
+
+        <Text style={styles.text}>Price</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="$CAD"
+          value={price.startsWith("$CAD ") ? price : `$CAD ${price}`}
+          keyboardType="numeric" 
+          onChangeText={(text) => setPrice(text)}
+        />
+        
+        <DatePicker
+          label="Availability"
+          selectedDate={availabilityDate}
+          onDateChange={setavailabilityDate}
+        />
+      
         <TouchableOpacity style={styles.button} onPress={onHandleSignup}>
           <Text style={{ fontWeight: 'bold', color: '#fff', fontSize: 18 }}> Sign Up</Text>
         </TouchableOpacity>
-        <View style={{ marginTop: 20, flexDirection: 'row', alignItems: 'center', alignSelf: 'center' }}>
+        <View style={{ marginTop: 20, flexDirection: 'row', alignItems: 'center', alignSelf: 'center',marginBottom:60 }}>
           <Text style={{ color: 'gray', fontWeight: '600', fontSize: 14 }}>Already have an account? </Text>
           <TouchableOpacity onPress={() => navigation.navigate("Login")}>
             <Text style={{ color: '#839D8E', fontWeight: '600', fontSize: 14 }}> Log In</Text>
           </TouchableOpacity>
         </View>
+
+
+        </ScrollView>
+      
       </SafeAreaView>
       <StatusBar barStyle="light-content" />
     </View>
   );
 }
-
 
 export default Signup;
