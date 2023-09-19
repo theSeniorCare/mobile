@@ -53,6 +53,7 @@ const createMenuSections = (userType) => {
 const Menu = ({ navigation }) => {
   const sections = createMenuSections("senior");
   const navigation = useNavigation();
+  
 
   return (
     <ScrollView style={styles.container}>
@@ -67,26 +68,31 @@ const Menu = ({ navigation }) => {
           >
             {title}
           </AppText>
-          {rows.map((row, rid) => (
-            <TouchableOpacity
-              key={`${sid}_${rid}`}
-              onPress={() => navigation.navigate(row.target)}
-            >
-              <View style={styles.row}>
-                <AppText variant="primary" size={14}>
-                  {row.title}
-                </AppText>
-                <Image source={require("assets/icons/chevron-right.png")} />
-              </View>
-              {rid !== rows.length - 1 && (
-                <Spacer
-                  marginStart={16}
-                  height={1}
-                  backgroundColor={Colors.main_green}
-                />
-              )}
-            </TouchableOpacity>
-          ))}
+          {rows.map(
+            (row, rid) => (
+
+              (
+                <TouchableOpacity
+                  key={`${sid}_${rid}`}
+                  onPress={() => navigation.navigate(row.replace(/ /g, ""))}
+                >
+                  <View style={styles.row}>
+                    <AppText variant="primary" size={14}>
+                      {row}
+                    </AppText>
+                    <Image source={require("assets/icons/chevron-right.png")} />
+                  </View>
+                  {rid !== rows.length - 1 && (
+                    <Spacer
+                      marginStart={16}
+                      height={1}
+                      backgroundColor={Colors.main_green}
+                    />
+                  )}
+                </TouchableOpacity>
+              )
+            )
+          )}
         </View>
       ))}
       <Spacer height={8} backgroundColor={Colors.beige_accent} />

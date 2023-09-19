@@ -97,6 +97,12 @@ const styles = StyleSheet.create({
     padding: 15,
     alignItems: "center",
   },
+  appointmentImage: {
+    height: 60,
+    width: 60,
+    resizeMode: "contain",
+    borderRadius: 20,
+  },
   singleAppointmentColumn: {
     justifyContent: "center",
     flex: 1,

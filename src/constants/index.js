@@ -31,11 +31,12 @@ export const Colors = {
   brown: "#AB988B",
   beige_accent: "#FEEFDC",
   white: "#FFFFFF",
+  lightBlack: "#444",
 };
 export const Fonts = {
   regular: "Figtree_400Regular", // Font File Name Must Match To Use Custom Font
   light: "Montserrat-Light",
-  medium: "Montserrat-Medium",
+  medium: "Figtree_500Medium",
   bold: "Montserrat-Regular",
 };
 
