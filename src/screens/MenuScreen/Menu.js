@@ -10,6 +10,7 @@ import { FIREBASE_AUTH } from "../../../FirebaseConfig";
 import AppText from "../../components/AppText";
 import Spacer from "../../components/Spacer";
 import { Colors } from "../../constants";
+import { useNavigation } from "@react-navigation/native";
 
 const createMenuSections = (userType) => {
   const accountRows = ["Profile", "Appointments"];
@@ -37,6 +38,7 @@ const createMenuSections = (userType) => {
 
 const Menu = () => {
   const sections = createMenuSections("senior");
+  const navigation = useNavigation();
 
   return (
     <ScrollView style={styles.container}>
@@ -52,7 +54,10 @@ const Menu = () => {
             {title}
           </AppText>
           {rows.map((row, rid) => (
-            <TouchableOpacity key={`${sid}_${rid}`}>
+            <TouchableOpacity
+              key={`${sid}_${rid}`}
+              onPress={() => navigation.navigate(row)}
+            >
               <View style={styles.row}>
                 <AppText variant="primary" size={14}>
                   {row}
