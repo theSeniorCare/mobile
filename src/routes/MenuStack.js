@@ -1,18 +1,40 @@
-import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Signup from '../screens/SignupScreen/Signup';
-import Login from '../screens/LoginScreen/Login';
-import BeforeSignup from '../screens/SignupScreen/BeforeSignup';
-import Menu from '../screens/MenuScreen/Menu';
-import DeveloperOption from '../screens/DeveloperOptionScreen/DeveloperOption';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
+import { Colors } from "../constants";
+import AboutScreen from "../screens/AboutScreen";
+import Menu from "../screens/MenuScreen/Menu";
 
 const Stack = createNativeStackNavigator();
 
 export function MenuStack() {
-    return (
-        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='menu'>
-            <Stack.Screen name='menu' component={Menu} />
-        </Stack.Navigator>
-    );
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: Colors.main_color,
+        },
+        headerTitleStyle: {
+          fontWeight: "bold",
+          color: Colors.main_green,
+        },
+        headerTintColor: Colors.main_green,
+      }}
+      initialRouteName="menu"
+    >
+      <Stack.Screen
+        name="menu"
+        component={Menu}
+        options={{
+          headerTitle: "Menu",
+        }}
+      />
+      <Stack.Screen
+        name="about"
+        component={AboutScreen}
+        options={{
+          headerTitle: "About Us",
+        }}
+      />
+    </Stack.Navigator>
+  );
 }
-
