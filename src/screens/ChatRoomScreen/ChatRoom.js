@@ -44,10 +44,16 @@ const ChatRoom = ({ route, navigation }) => {
     <View>
       <ProfileSection name={name} />
       <FlatList
+<<<<<<< HEAD
         style={{ marginTop: 5 }}
         data={[
           { key: "aslkdhjaksdhajshdlkahsdjkadasjdashdahsdkhkahjskdhaks" },
           { key: "Daasdnakndklansdkanskdnaskdnakndkansdklansdklnaskdnkasndn" },
+=======
+        data={[
+          { key: "Devin" },
+          { key: "Dan" },
+>>>>>>> main
           { key: "Dominic" },
           { key: "Jackson" },
           { key: "James" },
@@ -56,12 +62,16 @@ const ChatRoom = ({ route, navigation }) => {
           { key: "Jillian" },
           { key: "Jimmy" },
           { key: "Julie" },
+<<<<<<< HEAD
           { key: "asldmjkasmdamskdlmkk" },
           { key: "as;ldm';andflkndasf" },
           { key: "asl;dmjklanfklansdflkns" },
           { key: "asdlknaklsdn;kansdjd" },
         ]}
         ItemSeparatorComponent={() => <View style={{ height: 5 }} />}
+=======
+        ]}
+>>>>>>> main
         renderItem={({ item, index }) => {
           if (index % 2 == 0) {
             return <TargetChatBubble message={item.key} />;
