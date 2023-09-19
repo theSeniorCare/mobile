@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     left: 20,
   },
   title: {
-    fontSize: 36,
+    fontSize: 30,
     fontWeight: 'bold',
     color: '#839D8E',
     alignSelf: 'center',
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderRadius: 10,
     padding: 12,
+    justifyContent: 'center',
   },
   form: {
     flex: 1,
@@ -64,20 +65,29 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  label: {
-    fontSize: 18,
-    marginBottom: 8,
+  dateText: {
+    fontSize: 17,
+    justifyContent: 'center',
   },
-  selectedValue: {
-    fontSize: 16,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    padding: 10,
-    marginBottom: 16,
+  modal: {
+    justifyContent: 'flex-end',
+    margin: 0,
   },
-  datePicker: {
-    width: '100%',
-    marginBottom: 16,
+  modalContent: {
+    backgroundColor: 'black',
+    padding: 20,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+  },
+  text: {
+    paddingLeft: 10,
+    paddingBottom:4,
+    color: '#839D8E',
+    fontWeight: 'bold', // Adjust the padding as needed
+  },
+  scrollView: {
+    flex: 1, // You typically want the ScrollView to fill its container
+    marginTop: 20,
   },
 });
 

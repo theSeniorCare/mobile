@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  StyleSheet,
   Text,
   View,
   TextInput,
@@ -8,41 +7,14 @@ import {
   TouchableOpacity,
   StatusBar,
   Alert,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { FIREBASE_AUTH, FIREBASE_DB } from '../../../FirebaseConfig';
 import styles from './styles';
 import { ref, set } from "firebase/database";
-import { DateTimePicker } from '@react-native-community/datetimepicker';
-
-const MyTextInput = ({ label, icon, isPassword, hidePassword, setHidePassword, isDate, showDatePicker, ...props }) => {
-  return (
-    <View>
-      <LeftIcon>
-        <Octicons name={icon} size={30} color={brand} />
-      </LeftIcon>
-      <StyledInputLabel>{label}</StyledInputLabel>
-
-      {isDate && (
-        <TouchableOpacity onPress={showDatePicker}>
-          <StyledTextInput {...props} />
-        </TouchableOpacity>
-      )}
-      {!isDate && <StyledTextInput {...props} />}
-
-      {isPassword && (
-        <RightIcon
-          onPress={() => {
-            setHidePassword(!hidePassword);
-          }}
-        >
-          <Ionicons name={hidePassword ? 'md-eye-off' : 'md-eye'} size={30} color={darkLight} />
-        </RightIcon>
-      )}
-    </View>
-  );
-};
+import GenderPicker from './GenderPicker';
+import DatePicker from './DatePicker';
 
 
 
@@ -84,22 +56,13 @@ const Signup = ({ navigation,route }) => {
     // Handle the back button press here
     navigation.goBack();
   };
+  const [dateOfBirth, setDateOfBirth] = useState(new Date());
+  const [availabilityDate, setavailabilityDate] = useState(new Date());
+  const [price, setPrice] = useState('');
+  const [description, setDescription] = useState('');
+  const [specialization, setSpecialization] = useState('');
+  const [name, setName] = useState('');
 
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [show, setShow] = useState(false);
-  const [date, setDate] = useState(new Date());
-
-  const toggleDatepicker= ()=>{
-    setShow(!show)
-  }
-  const onChange= ({type},selectedDate) =>{
-    if(type == "set"){
-      const currentDate = selectedDate
-      setDate(currentDate)
-    }else{
-      toggleDatepicker()
-    }
-  }
 
   return (
     <View style={styles.container}>
@@ -107,10 +70,10 @@ const Signup = ({ navigation,route }) => {
         <TouchableOpacity onPress={handleBackButtonPress} style={styles.backButton}>
           <Text>Back</Text>
         </TouchableOpacity>
-        <ScrollView
+        <ScrollView style={styles.scrollView}
         showsVerticalScrollIndicator={false} >
-        <Text style={styles.title}>Sign Up</Text>
-        <TextInput
+        <Text style={styles.title}>Sign Up for {userType}</Text>
+        {/* <TextInput
           style={styles.input}
           placeholder="Enter email"
           autoCapitalize="none"
@@ -128,55 +91,56 @@ const Signup = ({ navigation,route }) => {
           textContentType="password"
           value={password}
           onChangeText={(text) => setPassword(text)}
-        />
+        /> */}
+ 
+        <Text style={styles.text}>Name</Text>
         <TextInput
           style={styles.input}
           placeholder="Name"
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-       />
-       <TextInput
-          style={styles.input}
-          placeholder="Gender"
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-       />
-       <TextInput
-          style={styles.input}
-          placeholder="Gender"
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-       />
-       <TextInput
-          style={styles.input}
-          placeholder="DOB"
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-       />
-       <TextInput
-          style={styles.input}
+          value={name}
+          onChangeText={(text) => setName(text)}
+        />
+        <Text style={styles.text}>Gender</Text>
+        <GenderPicker />
+
+        <DatePicker
+          label="Date Of Birth"
+          selectedDate={dateOfBirth}
+          onDateChange={setDateOfBirth}
+        />
+
+        <Text style={styles.text}>Description</Text>
+        <TextInput
+          style={[styles.input, { height: 100, textAlignVertical: 'top' }]} 
           placeholder="Description"
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-       />
-       <TextInput
-          style={styles.input}
-          placeholder="Specialization"
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-       />
-       <TextInput
-          style={styles.input}
-          placeholder="Price"
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-       />
+          numberOfLines={4}
+          maxLength={40}
+          value={description}
+          onChangeText={(text) => setDescription(text)}
+        />
+
+        <Text style={styles.text}>Specialization</Text>
+        <TextInput
+            style={[styles.input,{ height: 100, textAlignVertical: 'top' }]}
+            placeholder="Specialization"
+            value={specialization}
+            onChangeText={(text) => setSpecialization(text)}
+        />
+
+        <Text style={styles.text}>Price</Text>
         <TextInput
           style={styles.input}
-          placeholder="Availability"
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-       />
+          placeholder="$CAD"
+          value={price.startsWith("$CAD ") ? price : `$CAD ${price}`}
+          keyboardType="numeric" 
+          onChangeText={(text) => setPrice(text)}
+        />
+        
+        <DatePicker
+          label="Availability"
+          selectedDate={availabilityDate}
+          onDateChange={setavailabilityDate}
+        />
       
         <TouchableOpacity style={styles.button} onPress={onHandleSignup}>
           <Text style={{ fontWeight: 'bold', color: '#fff', fontSize: 18 }}> Sign Up</Text>
@@ -196,6 +160,5 @@ const Signup = ({ navigation,route }) => {
     </View>
   );
 }
-
 
 export default Signup;
