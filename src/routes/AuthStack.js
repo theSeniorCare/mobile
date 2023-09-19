@@ -4,7 +4,7 @@ import Landing from "../screens/LandingScreen/Landing";
 import Login from "../screens/LoginScreen/Login";
 import BeforeSignup from "../screens/SignupScreen/BeforeSignup";
 import Signup from "../screens/SignupScreen/Signup";
-import Splash from '../screens/SplashScreen/Splash';
+import Splash from "../screens/SplashScreen/Splash";
 import Appointments from "../screens/AppointmentsScreen/Appointments";
 import AppointmentDetail from "../screens/AppointmentDetailScreen/AppointmentDetail";
 import Profile from "../screens/ProfileScreen/Profile";
