@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     left: 20,
   },
   title: {
-    fontSize: 36,
+    fontSize: 30,
     fontWeight: 'bold',
     color: '#839D8E',
     alignSelf: 'center',
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderRadius: 10,
     padding: 12,
+    justifyContent: 'center',
   },
   form: {
     flex: 1,
@@ -63,6 +64,37 @@ const styles = StyleSheet.create({
   boxText: {
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  dateText: {
+    fontSize: 17,
+    justifyContent: 'center',
+  },
+  modal: {
+    justifyContent: 'flex-end',
+    margin: 0,
+  },
+  modalContent: {
+    backgroundColor: 'black',
+    padding: 20,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+  },
+  text: {
+    paddingLeft: 10,
+    paddingBottom:4,
+    color: '#839D8E',
+    fontWeight: 'bold',
+  },
+  textTitle: {
+    paddingBottom:16,
+    color: '#839D8E',
+    fontWeight: 'bold',
+    fontSize: 20,
+    alignSelf: 'center',
+  },
+  scrollView: {
+    flex: 1, 
+    marginTop: 20,
   },
 });
 
