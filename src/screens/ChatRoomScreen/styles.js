@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   ProfileSection: {
     display: "flex",
     flexDirection: "row",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: Colors.main_color,
   },
   ProfilePic: {
     width: 80,
