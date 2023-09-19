@@ -82,42 +82,63 @@ const modelPastList = [
     dateTime: "1:30 am, 02 September 2023",
     rating: "1.4",
     image: "https://i.pravatar.cc/300",
+    price: "99",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
     name: "Alex LastName",
     dateTime: "4pm - 12 am, 14 October 2023",
     rating: "4",
     image: "https://i.pravatar.cc/300",
+    price: "100",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
     name: "Akeel Lashlay",
     dateTime: "10:15, 3 November 2023",
     rating: "5",
     image: "https://i.pravatar.cc/300",
+    price: "60",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
     name: "Junaid Akram",
     dateTime: "4pm - 12 am, 14 October 2023",
     rating: "3.5",
     image: "https://i.pravatar.cc/300",
+    price: "199",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
     name: "Mushtaq Chandio",
     dateTime: "4pm - 12 am, 14 October 2023",
     rating: "4",
     image: "https://i.pravatar.cc/300",
+    price: "230",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
     name: "Juie Bakht",
     dateTime: "10:15, 3 November 2023",
     rating: "5",
     image: "https://i.pravatar.cc/300",
+    price: "199",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
     name: "Afnan Malik",
     dateTime: "4pm - 12 am, 14 October 2023",
     rating: "3.5",
     image: "https://i.pravatar.cc/300",
+    price: "230",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
 ];
 

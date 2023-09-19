@@ -1,95 +1,63 @@
 import { StyleSheet, StatusBar } from "react-native";
+import { Colors, Fonts } from "../../constants/index";
+
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: Colors.main_green,
     flex: 1,
   },
-  tabBar: {
-    flexDirection: "row",
-    paddingTop: StatusBar.currentHeight,
-    justifyContent: "center",
-  },
-  nonActiveTabItem: {
-    alignItems: "center",
-    padding: 16,
-    // backgroundColor: "#FEEADA",
-    width: "40%",
-    borderRadius: 20,
-    marginLeft: 10,
-  },
-  tabItem: {
-    alignItems: "center",
-    padding: 16,
-    backgroundColor: "#FEEADA",
-    width: "40%",
-    borderRadius: 20,
-    marginLeft: 10,
-  },
-  nonActiveTabBarText: {
-    color: "#e3bfa1",
-    fontFamily: "Figtree_700Bold",
-    fontSize: 16,
-  },
-  tabBarText: {
-    color: "#839D8E",
-    fontFamily: "Figtree_700Bold",
-    fontSize: 16,
-  },
-  appointmentListContainer: {
-    padding: 20,
-  },
-  title: {
-    color: "#839D8E",
-    fontFamily: "Figtree_700Bold",
-    fontSize: 16,
-  },
-  flatListContainer: {
-
-    marginTop: 15,
-  },
-  appointmentItem: {
-    backgroundColor: "#FEEADA",
-    height: 100,
-    flexDirection: "row",
-    elevation: 3,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
+  coverImage: {
+    height: 180,
+    resizeMode: "cover",
     borderRadius: 10,
-    padding: 15,
+    margin: 20,
+    marginBottom: 0,
+  },
+  mainDataView: {
+    backgroundColor: Colors.main_color,
+    padding: 20,
+    margin: 20,
+    marginTop: 10,
+    borderRadius: 10,
+  },
+  singleRowData: {
+    flexDirection: "row",
+    marginBottom: 10,
+    justifyContent: "space-between",
     alignItems: "center",
   },
-  appointmentImage: {
-    height: 60,
-    width: 60,
-    resizeMode: "contain",
-    borderRadius:20,
-  },
-  singleAppointmentColumn: {
-    justifyContent: "center",
-    flex: 1,
-    marginLeft: 15,
-  },
-  singleAppointmentRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  ratingView: {
-    marginLeft: 10,
-    flexDirection: "row",
-  },
-  appointmentText: {
+  textStyle: {
     fontFamily: "Figtree_700Bold",
-    fontSize: 16,
-    color: "#454545",
+    fontSize: 25,
+    color: Colors.main_green,
   },
-  appointmentTextSmall: {
-    marginTop: 3,
-    fontFamily: "Figtree_500Medium",
-    fontSize: 12,
-    color: "#454545",
+  serviceReviewRow: {
+    flexDirection: "row",
+  },
+  serviceRatingText: {
+    color: Colors.main_green,
+    fontFamily: "Figtree_700Bold",
+    marginLeft: 5,
+    fontSize: 16,
+  },
+  servicePrice: {
+    marginTop: 5,
+    borderColor: Colors.main_green,
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 5,
+    alignSelf: "flex-start",
+  },
+  servicePriceText: {
+    color: Colors.main_green,
+    fontFamily: "Figtree_700Bold",
+    fontSize: 14,
+  },
+  dateStyle: {
+    color: Colors.main_green,
+    fontFamily: "Figtree_700Bold",
+    fontSize: 14,
   },
 });
 

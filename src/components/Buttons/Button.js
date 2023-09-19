@@ -18,7 +18,7 @@ export class Button extends Component {
   getButtonColor(type) {
     switch (type) {
       case 'primary':
-        return Colors.ui_grey_05;
+        return Colors.main_green;
       case 'secondary':
         return Colors.ui_grey_05;
       case 'light':
@@ -31,13 +31,16 @@ export class Button extends Component {
   getTitleColor(type) {
     switch (type) {
       case 'primary':
-        return 'black';
+        return Colors.main_color;
       case 'secondary':
-        return 'black';
+        return Colors.main_green;
+
       case 'light':
-        return 'black';
+        return Colors.main_green;
+
       default:
-        return 'black';
+        return Colors.main_green;
+
     }
   }
 
@@ -69,6 +72,7 @@ export class Button extends Component {
       marginBottom,
       marginTop,
       fontSize,
+      fontFamily,
     } = this.props;
     return (
       <TouchableOpacity
@@ -101,9 +105,11 @@ export class Button extends Component {
               {
                 color: disabled ? Colors.ui_grey_10 : this.getTitleColor(type),
                 fontSize: fontSize ? fontSize : 18,
+                fontFamily:fontFamily,
               },
             ]}>
-            {title.toUpperCase()}
+            {/* {title.toUpperCase()} */}
+            {title}
           </Text>
           {loading && (
             <ActivityIndicator color={Colors.white} style={{marginStart: 5}} />

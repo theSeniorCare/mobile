@@ -46,7 +46,11 @@ export function AppStack({ userType }) {
         options={{
           tabBarLabel: "Appointments",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
+            <MaterialCommunityIcons
+              name="calendar-check"
+              color={color}
+              size={size}
+            />
           ),
         }}
       />

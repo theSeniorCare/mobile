@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingTop: StatusBar.currentHeight,
     justifyContent: "center",
+    marginTop: 10,
   },
   nonActiveTabItem: {
     alignItems: "center",
@@ -38,6 +39,7 @@ const styles = StyleSheet.create({
   },
   appointmentListContainer: {
     padding: 20,
+    paddingBottom: 0,
   },
   title: {
     color: "#839D8E",
@@ -45,7 +47,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   flatListContainer: {
-
     marginTop: 15,
   },
   appointmentItem: {
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
     height: 60,
     width: 60,
     resizeMode: "contain",
-    borderRadius:20,
+    borderRadius: 20,
   },
   singleAppointmentColumn: {
     justifyContent: "center",
