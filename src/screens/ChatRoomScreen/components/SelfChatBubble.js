@@ -8,9 +8,13 @@ const SelfChatBubble = (props) => {
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-end",
-        marginBottom: 5,
         marginEnd: 10,
+        marginLeft: "50%",
+        alignSelf: "flex-end",
         backgroundColor: Colors.ui_grey_20,
+        borderRadius: 10,
+        padding: 6,
+        paddingHorizontal: 10,
       }}
     >
       <Text>{props.message}</Text>
