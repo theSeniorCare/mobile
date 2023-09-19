@@ -4,9 +4,10 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { Colors } from "../constants";
 import Home from "../screens/HomeScreen/Home";
-import Profile from "../screens/ProfileScreen/Profile";
 import { ChatStack } from "./ChatStack";
+import Profile from "../screens/ProfileScreen/Profile";
 import { MenuStack } from "./MenuStack";
+import Appointments from "../screens/AppointmentsScreen/Appointments";
 
 const Tab = createBottomTabNavigator();
 
@@ -33,8 +34,23 @@ export function AppStack({ userType }) {
         component={() => <Home userType={userType} />}
         options={{
           tabBarLabel: "Home",
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Appointments"
+        component={Appointments}
+        options={{
+          tabBarLabel: "Appointments",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons
+              name="calendar-check"
+              color={color}
+              size={size}
+            />
           ),
         }}
       />
@@ -53,16 +69,7 @@ export function AppStack({ userType }) {
           ),
         }}
       />
-      <Tab.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          tabBarLabel: "Profile",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
-          ),
-        }}
-      />
+
       <Tab.Screen
         name="Menu"
         component={MenuStack}
